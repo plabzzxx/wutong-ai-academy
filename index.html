@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>'''技术是人的延伸————Marshall McLuhan'''</title>
+    <title>梧桐AI学院 - 培育AI人才，引领数字未来</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <style>
         :root {
             --primary: #4a6bdf;
             --primary-light: #eef1ff;
             --secondary: #6c63ff;
-            --accent: #ff6b6b;
-            --text: #333;
-            --text-light: #666;
-            --background: #ffffff;
+            --accent: #ff9466;
+            --text: #2d2d2d;
+            --text-light: #5c5c5c;
+            --background: #f8f9ff;
             --card-bg: #ffffff;
-            --border: #e7e9f5;
-            --shadow: rgba(74, 107, 223, 0.1);
+            --border: #e0e2f7;
+            --shadow: rgba(74, 107, 223, 0.08);
+            --hover-shadow: rgba(74, 107, 223, 0.15);
+            --basic-bg: rgba(132, 205, 150, 0.1);
+            --basic-bg-hover: rgba(132, 205, 150, 0.2);
+            --basic-accent: #4caf50;
+            --elective-bg: rgba(156, 39, 176, 0.05);
         }
         
         * {
@@ -29,430 +35,700 @@
             background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 80px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><circle cx="50" cy="50" r="40" fill="white"/></svg>');
-            background-size: 200px;
-            opacity: 0.2;
-        }
-        
-        .hero {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-        
-        .quote {
-            font-style: italic;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .schools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: -50px;
-            margin-bottom: 50px;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .school-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px var(--shadow);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .school-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(74, 107, 223, 0.15);
-        }
-        
-        .school-header {
-            padding: 25px;
             position: relative;
         }
         
-        .basic-school .school-header {
-            background: linear-gradient(135deg, #4caf50, #8bc34a);
+        /* 导航栏 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 100;
         }
         
-        .data-school .school-header {
-            background: linear-gradient(135deg, #2196f3, #03a9f4);
-        }
-        
-        .content-school .school-header {
-            background: linear-gradient(135deg, #ff9800, #ff5722);
-        }
-        
-        .growth-school .school-header {
-            background: linear-gradient(135deg, #e91e63, #f06292);
-        }
-        
-        .product-school .school-header {
-            background: linear-gradient(135deg, #9c27b0, #ba68c8);
-        }
-        
-        .tech-school .school-header {
-            background: linear-gradient(135deg, #3f51b5, #7986cb);
-        }
-        
-        .strategy-school .school-header {
-            background: linear-gradient(135deg, #607d8b, #90a4ae);
-        }
-        
-        .system-school .school-header {
-            background: linear-gradient(135deg, #795548, #a1887f);
-        }
-        
-        .school-icon {
-            font-size: 36px;
-            color: white;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        
-        .school-name {
-            color: white;
+        .logo {
             font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .school-motto {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.95rem;
-            font-style: italic;
+        .logo span {
+            font-size: 24px;
         }
         
-        .school-content {
-            padding: 25px;
+        .nav-links {
+            display: flex;
+            gap: 40px;
         }
         
-        .course {
-            margin-bottom: 25px;
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
         
-        .course:last-child {
-            margin-bottom: 0;
-        }
-        
-        .course-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .nav-links a:hover {
             color: var(--primary);
         }
         
-        .course-desc {
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(74, 107, 223, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(74, 107, 223, 0.3);
+        }
+        
+        /* 头部英雄区 */
+        .hero-section {
+            padding: 80px 0 120px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
             color: var(--text-light);
-            font-size: 0.95rem;
+        }
+        
+        .hero-quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+        
+        /* 装饰性图形 */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 148, 102, 0.3);
+            top: 100px;
+            left: 5%;
+        }
+        
+        .shape-2 {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(74, 107, 223, 0.2);
+            bottom: 10%;
+            right: 10%;
+        }
+        
+        .shape-3 {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(132, 205, 150, 0.3);
+            top: 20%;
+            right: 20%;
+        }
+        
+        .shape-4 {
+            width: 120px;
+            height: 60px;
+            background-color: rgba(156, 39, 176, 0.1);
+            bottom: 30%;
+            left: 15%;
+            border-radius: 30px;
+            transform: rotate(-30deg);
+        }
+        
+        /* 核心课程部分 */
+        .core-courses {
+            background-color: white;
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
         
         .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin: 70px 0 40px;
-            color: var(--primary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-light);
+        }
+        
+        .courses-showcase {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .courses-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .course-card {
+            background-color: var(--basic-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            padding: 40px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
             position: relative;
         }
         
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            margin: 15px auto 0;
-            border-radius: 2px;
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow);
+            background-color: var(--basic-bg-hover);
+            border-color: var(--basic-accent);
         }
         
-        footer {
-            background-color: var(--primary-light);
-            padding: 50px 0;
+        .course-icon {
+            font-size: 36px;
+            color: var(--basic-accent);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .course-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .course-subtitle {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .course-description {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .course-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            color: var(--basic-accent);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .course-button:hover {
+            background-color: var(--basic-accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .course-button span {
+            font-size: 20px;
+            margin-left: 8px;
+        }
+        
+        /* 选修课程部分 */
+        .elective-courses {
+            padding: 80px 0;
+            background-color: var(--background);
+            position: relative;
+        }
+        
+        .elective-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .elective-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .elective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--hover-shadow);
+        }
+        
+        .elective-header {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .data-school .elective-header {
+            background: linear-gradient(135deg, #2196f3, #03a9f4);
+        }
+        
+        .content-school .elective-header {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+        }
+        
+        .growth-school .elective-header {
+            background: linear-gradient(135deg, #e91e63, #f06292);
+        }
+        
+        .product-school .elective-header {
+            background: linear-gradient(135deg, #9c27b0, #ba68c8);
+        }
+        
+        .tech-school .elective-header {
+            background: linear-gradient(135deg, #3f51b5, #7986cb);
+        }
+        
+        .strategy-school .elective-header {
+            background: linear-gradient(135deg, #607d8b, #90a4ae);
+        }
+        
+        .system-school .elective-header {
+            background: linear-gradient(135deg, #795548, #a1887f);
+        }
+        
+        .elective-icon {
+            font-size: 30px;
+            color: white;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .elective-name {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .elective-motto {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+        
+        .elective-content {
+            padding: 20px;
+        }
+        
+        .elective-course {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .elective-course:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .elective-course-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+        
+        .elective-course-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* 学习成果部分 */
+        .outcomes {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .outcome-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 20px var(--shadow);
+            transition: all 0.3s;
             text-align: center;
-            margin-top: 70px;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .outcome-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--hover-shadow);
+        }
+        
+        .outcome-icon {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .outcome-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .outcome-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
         }
         
         .footer-content {
+            text-align: center;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 40px;
         }
         
         .footer-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--primary);
         }
         
         .footer-content p {
             margin-bottom: 30px;
-            color: var(--text-light);
+            opacity: 0.9;
         }
         
         .contact {
             font-weight: 600;
-            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .courses-row,
+            .elective-grid,
+            .outcomes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
         
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero-title {
+                font-size: 3rem;
             }
             
-            .schools-grid {
+            .courses-row,
+            .elective-grid,
+            .outcomes-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="hero">
-                <h1>🌳 梧桐AI学院</h1>
-                <div class="quote">"梧桐一叶落，AI知天下秋"</div>
-                <p>培育AI人才，引领数字未来</p>
-            </div>
-        </div>
-    </header>
-    
+    <!-- 导航栏 -->
     <div class="container">
-        <div class="schools-grid">
-            <!-- 基础学院 -->
-            <div class="school-card basic-school">
-                <div class="school-header">
-                    <div class="school-icon">🌱</div>
-                    <h2 class="school-name">效率启蒙学院</h2>
-                    <div class="school-motto">让AI成为你的得力助手</div>
-                </div>
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">《魔法助手：AI效率倍增术》</h3>
-                        <p class="course-desc">一天掌握AI助手的核心应用技巧，立即提升50%工作效率。从个人助手配置到提示词工程，从日常场景优化到工作流改造，全方位解锁AI效率密码。</p>
-                    </div>
-                    <div class="course">
-                        <h3 class="course-title">《思维升级：与AI共舞的创新艺术》</h3>
-                        <p class="course-desc">打破传统思维局限，学习如何与AI协同创新。探索AI时代的工作思维，掌握头脑风暴新技巧，加速创意落地，引领团队创新实践。</p>
-                    </div>
-                </div>
+        <nav>
+            <div class="logo">
+                <span class="material-symbols-rounded">school</span>
+                梧桐AI学院
             </div>
-            
-            <!-- 数据智能学院 -->
-            <div class="school-card data-school">
-                <div class="school-header">
-                    <div class="school-icon">📊</div>
-                    <h2 class="school-name">数据智能学院</h2>
-                    <div class="school-motto">洞察数据，智驭决策</div>
-                </div>
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">《数据炼金术：从信息到洞察》</h3>
-                        <p class="course-desc">无需编程基础，轻松驾驭数据分析，获取关键业务洞察。AI赋能的数据探索与可视化，让复杂数据变得简单易懂。</p>
-                    </div>
-                    <div class="course">
-                        <h3 class="course-title">《预见未来：AI驱动的预测分析》</h3>
-                        <p class="course-desc">掌握AI预测建模的核心方法，从历史数据中发现未来趋势，为业务决策提供科学依据。</p>
-                    </div>
-                </div>
+            <div class="nav-links">
+                <a href="#core-courses">核心课程</a>
+                <a href="#elective-courses">专业课程</a>
+                <a href="#outcomes">学习成果</a>
+                <a href="#contact">联系我们</a>
             </div>
-            
-            <!-- 创意内容学院 -->
-            <div class="school-card content-school">
-                <div class="school-header">
-                    <div class="school-icon">📝</div>
-                    <h2 class="school-name">创意内容学院</h2>
-                    <div class="school-motto">释放创造力，打造精彩内容</div>
-                </div>
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">《文案魔法师：AI辅助内容创作》</h3>
-                        <p class="course-desc">掌握AI内容创作技巧，打造高转化率的营销素材。从创意构思到精准表达，让每一篇文案都直击用户心灵。</p>
-                    </div>
-                    <div class="course">
-                        <h3 class="course-title">《视觉奇境：AI图像与视频创作》</h3>
-                        <p class="course-desc">探索AI视觉创作的无限可能，从图像生成到视频制作，轻松打造专业级视觉内容。</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 用户增长学院 -->
-            <div class="school-card growth-school">
-                <div class="school-header">
-                    <div class="school-icon">👥</div>
-                    <h2 class="school-name">用户增长学院</h2>
-                    <div class="school-motto">精准触达，持续增长</div>
-                </div>
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">《用户画像：解码用户心智》</h3>
-                        <p class="course-desc">利用AI构建立体化用户画像，深入理解用户需求与行为，为精准营销奠定基础。</p>
-                    </div>
-                    <div class="course">
-                        <h3 class="course-title">《增长黑客：AI驱动的用户获取与留存》</h3>
-                        <p class="course-desc">运用AI优化全生命周期管理，设计高效增长漏斗，实现用户规模与价值的双重增长。</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 产品创新学院 -->
-            <div class="school-card product-school">
-                <div class="school-header">
-                    <div class="school-icon">🎨</div>
-                    <h2 class="school-name">产品创新学院</h2>
-                    <div class="school-motto">重塑体验，引领未来</div>
-                </div>
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">《需求猎手：AI辅助的用户需求挖掘》</h3>
-                        <p class="course-desc">运用AI技术捕捉用户显性与隐性需求，将海量反馈转化为有价值的产品洞察。</p>
-                    </div>
-                    <div class="course">
-                        <h3 class="course-title">《体验魔法师：AI驱动的产品设计》</h3>
-                        <p class="course-desc">将AI融入产品设计全流程，从原型设计到用户测试，创造卓越的用户体验。</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 技术赋能学院 -->
-            <div class="school-card tech-school">
-                <div class="school-header">
-                    <div class="school-icon">💻</div>
-                    <h2 class="school-name">技术赋能学院</h2>
-                    <div class="school-motto">提效降本，质量保障</div>
-                </div>
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">《代码共创：与AI结对编程》</h3>
-                        <p class="course-desc">掌握与AI协作编码的技巧，提升开发效率，减少Bug，加速功能交付。</p>
-                    </div>
-                    <div class="course">
-                        <h3 class="course-title">《质量守护者：AI驱动的测试与部署》</h3>
-                        <p class="course-desc">运用AI优化测试流程，构建智能化持续集成与部署体系，保障产品质量。</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 战略转型学院 -->
-            <div class="school-card strategy-school">
-                <div class="school-header">
-                    <div class="school-icon">🔮</div>
-                    <h2 class="school-name">战略转型学院</h2>
-                    <div class="school-motto">引领变革，塑造未来</div>
-                </div>
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">《AI战略导航：数字化转型之路》</h3>
-                        <p class="course-desc">系统规划企业AI战略，评估能力现状，设计成熟度提升路径，引领企业数字化变革。</p>
-                    </div>
-                    <div class="course">
-                        <h3 class="course-title">《组织再造：AI时代的领导力》</h3>
-                        <p class="course-desc">探索AI时代的组织结构与领导力模型，构建学习型组织，激发创新潜能。</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- AI系统学院 -->
-            <div class="school-card system-school">
-                <div class="school-header">
-                    <div class="school-icon">🛠️</div>
-                    <h2 class="school-name">AI系统学院</h2>
-                    <div class="school-motto">构建AI能力中心</div>
-                </div>
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">《知识银行：企业专属大模型构建》</h3>
-                        <p class="course-desc">从数据收集到模型微调，构建适合企业特定场景的专属AI知识库与应用。</p>
-                    </div>
-                    <div class="course">
-                        <h3 class="course-title">《流程炼金术：工作流自动化与集成》</h3>
-                        <p class="course-desc">设计端到端的AI驱动工作流，实现跨系统、跨工具的智能协同，释放组织生产力。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <h2 class="section-title">学习成果</h2>
-        <div class="schools-grid">
-            <div class="school-card">
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">实战技能</h3>
-                        <p class="course-desc">每门课程都配有实战项目，确保学以致用</p>
-                    </div>
-                </div>
-            </div>
-            <div class="school-card">
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">方法工具</h3>
-                        <p class="course-desc">掌握一系列可复用的AI应用方法与工具</p>
-                    </div>
-                </div>
-            </div>
-            <div class="school-card">
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">思维升级</h3>
-                        <p class="course-desc">建立AI时代的工作思维与创新方法</p>
-                    </div>
-                </div>
-            </div>
-            <div class="school-card">
-                <div class="school-content">
-                    <div class="course">
-                        <h3 class="course-title">社群资源</h3>
-                        <p class="course-desc">加入校友网络，持续学习与经验分享</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <a href="#enroll" class="cta-button">立即报名</a>
+        </nav>
     </div>
     
-    <footer>
+    <!-- 英雄区 -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">培育AI人才，引领数字未来</h1>
+            <div class="hero-quote">"梧桐一叶落，AI知天下秋"</div>
+            <p class="hero-subtitle">梧桐AI学院是国内首家专注于互联网企业AI能力建设的虚拟学府，通过系统化课程体系，帮助每位学员快速掌握AI技能。</p>
+            <a href="#core-courses" class="cta-button">探索课程</a>
+        </div>
+        
+        <!-- 装饰性图形 -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </section>
+    
+    <!-- 核心课程区 -->
+    <section class="core-courses" id="core-courses">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">核心基础课程</h2>
+                <p class="section-description">专为所有人设计的AI赋能课程，零基础也能快速掌握AI应用技能</p>
+            </div>
+            
+            <div class="courses-showcase">
+                <div class="courses-row">
+                    <div class="course-card">
+                        <div class="course-icon">🔮</div>
+                        <h3 class="course-title">《魔法助手：AI效率倍增术》</h3>
+                        <p class="course-subtitle">从小白到AI高效达人的速成指南</p>
+                        <p class="course-description">一天掌握AI助手的核心应用技巧，立即提升50%工作效率。从个人助手配置到提示词工程，从日常场景优化到工作流改造，全方位解锁AI效率密码。</p>
+                        <a href="#details" class="course-button">查看详情 <span class="material-symbols-rounded">arrow_forward</span></a>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-icon">🧠</div>
+                        <h3 class="course-title">《思维升级：与AI共舞的创新艺术》</h3>
+                        <p class="course-subtitle">重塑思考方式，激发创意潜能</p>
+                        <p class="course-description">打破传统思维局限，学习如何与AI协同创新。探索AI时代的工作思维，掌握头脑风暴新技巧，加速创意落地，引领团队创新实践。</p>
+                        <a href="#details" class="course-button">查看详情 <span class="material-symbols-rounded">arrow_forward</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 选修课程区 -->
+    <section class="elective-courses" id="elective-courses">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">专业选修课程</h2>
+                <p class="section-description">根据职业发展需求，定制专属的AI进阶学习路径</p>
+            </div>
+            
+            <div class="elective-grid">
+                <!-- 数据智能学院 -->
+                <div class="elective-card data-school">
+                    <div class="elective-header">
+                        <div class="elective-icon">📊</div>
+                        <h2 class="elective-name">数据智能学院</h2>
+                        <div class="elective-motto">洞察数据，智驭决策</div>
+                    </div>
+                    <div class="elective-content">
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《数据炼金术：从信息到洞察》</h3>
+                            <p class="elective-course-desc">无需编程基础，轻松驾驭数据分析，获取关键业务洞察。</p>
+                        </div>
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《预见未来：AI驱动的预测分析》</h3>
+                            <p class="elective-course-desc">掌握AI预测建模的核心方法，从历史数据中发现未来趋势。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 创意内容学院 -->
+                <div class="elective-card content-school">
+                    <div class="elective-header">
+                        <div class="elective-icon">📝</div>
+                        <h2 class="elective-name">创意内容学院</h2>
+                        <div class="elective-motto">释放创造力，打造精彩内容</div>
+                    </div>
+                    <div class="elective-content">
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《文案魔法师：AI辅助内容创作》</h3>
+                            <p class="elective-course-desc">掌握AI内容创作技巧，打造高转化率的营销素材。</p>
+                        </div>
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《视觉奇境：AI图像与视频创作》</h3>
+                            <p class="elective-course-desc">探索AI视觉创作的无限可能，轻松打造专业级视觉内容。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 用户增长学院 -->
+                <div class="elective-card growth-school">
+                    <div class="elective-header">
+                        <div class="elective-icon">👥</div>
+                        <h2 class="elective-name">用户增长学院</h2>
+                        <div class="elective-motto">精准触达，持续增长</div>
+                    </div>
+                    <div class="elective-content">
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《用户画像：解码用户心智》</h3>
+                            <p class="elective-course-desc">利用AI构建立体化用户画像，深入理解用户需求与行为。</p>
+                        </div>
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《增长黑客：AI驱动的用户获取》</h3>
+                            <p class="elective-course-desc">运用AI优化全生命周期管理，设计高效增长漏斗。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品创新学院 -->
+                <div class="elective-card product-school">
+                    <div class="elective-header">
+                        <div class="elective-icon">🎨</div>
+                        <h2 class="elective-name">产品创新学院</h2>
+                        <div class="elective-motto">重塑体验，引领未来</div>
+                    </div>
+                    <div class="elective-content">
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《需求猎手：AI辅助的用户需求挖掘》</h3>
+                            <p class="elective-course-desc">运用AI技术捕捉用户显性与隐性需求，转化为产品洞察。</p>
+                        </div>
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《体验魔法师：AI驱动的产品设计》</h3>
+                            <p class="elective-course-desc">将AI融入产品设计全流程，创造卓越的用户体验。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 技术赋能学院 -->
+                <div class="elective-card tech-school">
+                    <div class="elective-header">
+                        <div class="elective-icon">💻</div>
+                        <h2 class="elective-name">技术赋能学院</h2>
+                        <div class="elective-motto">提效降本，质量保障</div>
+                    </div>
+                    <div class="elective-content">
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《代码共创：与AI结对编程》</h3>
+                            <p class="elective-course-desc">掌握与AI协作编码的技巧，提升开发效率，减少Bug。</p>
+                        </div>
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《质量守护者：AI驱动的测试与部署》</h3>
+                            <p class="elective-course-desc">运用AI优化测试流程，构建智能化持续集成与部署体系。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI系统学院 -->
+                <div class="elective-card system-school">
+                    <div class="elective-header">
+                        <div class="elective-icon">🛠️</div>
+                        <h2 class="elective-name">AI系统学院</h2>
+                        <div class="elective-motto">构建AI能力中心</div>
+                    </div>
+                    <div class="elective-content">
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《知识银行：企业专属大模型构建》</h3>
+                            <p class="elective-course-desc">从数据收集到模型微调，构建企业专属AI知识库与应用。</p>
+                        </div>
+                        <div class="elective-course">
+                            <h3 class="elective-course-title">《流程炼金术：工作流自动化与集成》</h3>
+                            <p class="elective-course-desc">设计端到端的AI驱动工作流，实现跨系统、跨工具的智能协同。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 学习成果区 -->
+    <section class="outcomes" id="outcomes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">学习成果</h2>
+                <p class="section-description">通过梧桐AI学院的系统学习，您将获得这些能力</p>
+            </div>
+            
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <div class="outcome-icon">⚡</div>
+                    <h3 class="outcome-title">实战技能</h3>
+                    <p class="outcome-desc">每门课程都配有实战项目，确保学以致用，立即应用于工作中</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">🔧</div>
+                    <h3 class="outcome-title">方法工具</h3>
+                    <p class="outcome-desc">掌握一系列可复用的AI应用方法与工具，持续提升工作效率</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">🧩</div>
+                    <h3 class="outcome-title">思维升级</h3>
+                    <p class="outcome-desc">建立AI时代的工作思维与创新方法，保持竞争力</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">🌐</div>
+                    <h3 class="outcome-title">社群资源</h3>
+                    <p class="outcome-desc">加入校友网络，持续学习与经验分享，拓展人脉</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <h3>与AI同行，迈向智能未来</h3>
                 <p>梧桐AI学院为每一位学员提供量身定制的学习体验，帮助个人与企业在AI时代中脱颖而出。</p>
-                <div class="contact">联系我们：wutong.ai@google.com</div>
+                <div class="contact">联系我们：wutong.ai@example.com</div>
             </div>
+            <div class="copyright">© 2024 梧桐AI学院 版权所有</div>
         </div>
     </footer>
 </body>
